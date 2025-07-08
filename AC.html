@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação: Arm vs. x86</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+        }
+        /* Container to enforce 16:9 aspect ratio */
+        .aspect-ratio-16-9 {
+            aspect-ratio: 16 / 9;
+        }
+        /* Hide scrollbar for the carousel track */
+        .slides-track {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        .slides-track::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+        .slide {
+            flex: 0 0 100%;
+            transition: opacity 0.5s ease-in-out;
+        }
+        /* Custom styles for diagrams and timelines */
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem; /* 40px */
+            padding-bottom: 2rem; /* 32px */
+            border-left: 2px solid #334155; /* slate-700 */
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -9px; /* Adjust to center the dot on the line */
+            top: 4px;
+            height: 1rem; /* 16px */
+            width: 1rem; /* 16px */
+            background-color: #0ea5e9; /* sky-500 */
+            border-radius: 9999px;
+            border: 2px solid #0f172a; /* slate-900 */
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            3from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200 flex flex-col items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-6xl">
+        <!-- Presentation Container -->
+        <div id="presentation-container" class="aspect-ratio-16-9 w-full bg-slate-800 rounded-xl shadow-2xl overflow-hidden relative">
+            <!-- Slides Track -->
+            <div id="slides-track" class="flex h-full w-full transition-transform duration-500 ease-in-out">
+
+                <!-- Slide 1: Título -->
+                <div class="slide w-full h-full p-8 md:p-16 flex flex-col justify-center items-center text-center bg-gradient-to-br from-slate-900 to-slate-800 fade-in">
+                    <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Desempenho e Eficiência</h1>
+                    <h2 class="text-2xl md:text-4xl font-bold text-sky-400 mt-2">A Batalha das Arquiteturas <span class="text-green-400">Arm</span> vs. <span class="text-orange-400">x86</span></h2>
+                    <p class="mt-8 text-lg text-slate-400">Uma análise baseada em processamento assimétrico e tendências atuais.</p>
+                    <div class="mt-16 text-xl">
+                        <p>[Seu Nome Completo]</p>
+                        <p class="text-base text-slate-500">[Nome da Disciplina/Curso]</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Introdução (Melhorado) -->
+                <div class="slide w-full h-full p-8 md:p-12 flex flex-col justify-center fade-in">
+                    <h2 class="text-3xl font-bold text-sky-400 mb-6 text-center">2. Introdução: Rota de Colisão</h2>
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="text-center p-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-orange-400"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                            <h3 class="font-bold text-xl text-orange-400 mt-2">x86</h3>
+                            <p class="text-sm">Reino do Desempenho</p>
+                        </div>
+                        <div class="flex-grow text-center px-4">
+                            <p class="text-slate-300">Historicamente separadas, as duas maiores arquiteturas de CPU hoje competem diretamente nos mesmos mercados, redefinindo o futuro dos nossos dispositivos.</p>
+                            <div class="w-full h-1 bg-slate-700 my-4 rounded-full relative">
+                                <div class="absolute top-0 left-0 h-1 bg-gradient-to-r from-orange-400 to-sky-500 w-1/2 animate-pulse"></div>
+                                <div class="absolute top-0 right-0 h-1 bg-gradient-to-l from-green-400 to-sky-500 w-1/2 animate-pulse"></div>
+                            </div>
+                            <p class="font-semibold text-white">Este seminário analisa essa batalha, seus fundamentos e seu impacto prático.</p>
+                        </div>
+                        <div class="text-center p-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-green-400"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                            <h3 class="font-bold text-xl text-green-400 mt-2">Arm</h3>
+                            <p class="text-sm">Reino da Eficiência</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Fundamentação Teórica - Conceitos -->
+                <div class="slide w-full h-full p-8 md:p-12 flex flex-col justify-center fade-in">
+                    <h2 class="text-3xl font-bold text-sky-400 mb-8 text-center">3. Fundamentação Teórica: Conceitos</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <!-- Diagrama x86 (CISC) -->
+                        <div class="bg-slate-700/50 p-6 rounded-lg flex flex-col">
+                            <h3 class="font-bold text-xl text-white">x86 (CISC)</h3>
+                            <p class="text-sm text-slate-400 mb-4">Complex Instruction Set</p>
+                            <div class="flex-grow flex items-center justify-center">
+                                <svg viewBox="0 0 120 80" class="w-full h-auto">
+                                    <rect x="10" y="10" width="100" height="20" fill="#f97316" class="opacity-80"/>
+                                    <text x="60" y="24" font-size="8" fill="white" text-anchor="middle" font-weight="bold">Instrução Complexa</text>
+                                    <path d="M60 30 V 40" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2,2"/>
+                                    <rect x="5" y="45" width="30" height="15" fill="#475569"/><text x="20" y="55" font-size="6" fill="white" text-anchor="middle">μOp 1</text>
+                                    <rect x="45" y="45" width="30" height="15" fill="#475569"/><text x="60" y="55" font-size="6" fill="white" text-anchor="middle">μOp 2</text>
+                                    <rect x="85" y="45" width="30" height="15" fill="#475569"/><text x="100" y="55" font-size="6" fill="white" text-anchor="middle">μOp 3</text>
+                                </svg>
+                            </div>
+                            <p class="mt-4 text-sm">Uma instrução poderosa é decodificada em várias micro-operações.</p>
+                        </div>
+                        <!-- Diagrama Arm (RISC) -->
+                        <div class="bg-slate-700/50 p-6 rounded-lg flex flex-col">
+                            <h3 class="font-bold text-xl text-white">Arm (RISC)</h3>
+                            <p class="text-sm text-slate-400 mb-4">Reduced Instruction Set</p>
+                            <div class="flex-grow flex items-center justify-center">
+                                <svg viewBox="0 0 120 80" class="w-full h-auto">
+                                    <rect x="10" y="10" width="100" height="12" fill="#22c55e" class="opacity-80"/><text x="60" y="18" font-size="6" fill="white" text-anchor="middle">LOAD</text>
+                                    <rect x="10" y="27" width="100" height="12" fill="#22c55e" class="opacity-80"/><text x="60" y="35" font-size="6" fill="white" text-anchor="middle">ADD</text>
+                                    <rect x="10" y="44" width="100" height="12" fill="#22c55e" class="opacity-80"/><text x="60" y="52" font-size="6" fill="white" text-anchor="middle">STORE</text>
+                                </svg>
+                            </div>
+                            <p class="mt-4 text-sm">Instruções simples e uniformes executadas diretamente em um pipeline.</p>
+                        </div>
+                        <!-- Diagrama Multicore Assimétrico -->
+                        <div class="bg-sky-600/30 p-6 rounded-lg border border-sky-500 flex flex-col">
+                            <h3 class="font-bold text-xl text-white">Multicore Assimétrico</h3>
+                            <p class="text-sm text-sky-300 mb-4">A chave da eficiência</p>
+                            <div class="flex-grow flex items-center justify-center">
+                                <svg viewBox="0 0 120 80" class="w-full h-auto">
+                                    <rect x="10" y="10" width="100" height="60" fill="#1e293b" rx="5"/>
+                                    <rect x="20" y="20" width="35" height="40" fill="#0ea5e9"/><text x="37.5" y="45" font-size="8" fill="white" text-anchor="middle" font-weight="bold">P-Core</text>
+                                    <rect x="65" y="20" width="15" height="18" fill="#16a34a"/><text x="72.5" y="30" font-size="6" fill="white" text-anchor="middle">E-Core</text>
+                                    <rect x="85" y="20" width="15" height="18" fill="#16a34a"/><text x="92.5" y="30" font-size="6" fill="white" text-anchor="middle">E-Core</text>
+                                    <rect x="65" y="42" width="15" height="18" fill="#16a34a"/><text x="72.5" y="52" font-size="6" fill="white" text-anchor="middle">E-Core</text>
+                                    <rect x="85" y="42" width="15" height="18" fill="#16a34a"/><text x="92.5" y="52" font-size="6" fill="white" text-anchor="middle">E-Core</text>
+                                </svg>
+                            </div>
+                            <p class="mt-4 text-sm">Combina núcleos de <strong class="text-sky-300">desempenho</strong> e de <strong class="text-green-300">eficiência</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Fundamentação Teórica - Evolução -->
+                <div class="slide w-full h-full p-8 md:p-12 flex flex-col justify-center fade-in">
+                    <h2 class="text-3xl font-bold text-sky-400 mb-8 text-center">3. Fundamentação Teórica: Evolução</h2>
+                    <div class="w-full max-w-3xl mx-auto">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="font-bold text-lg text-white">Décadas de 80-2000: Domínio x86</h4>
+                            <p class="text-slate-300">A arquitetura x86 se consolida como padrão absoluto em Desktops e Servidores, focando em poder de processamento.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="font-bold text-lg text-white">Década de 2000: Ascensão da Arm</h4>
+                            <p class="text-slate-300">Com a revolução dos smartphones, o modelo de licenciamento e a eficiência energética da Arm dominam o mercado móvel.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h4 class="font-bold text-lg text-white">2015: Pesquisa de Mittal</h4>
+                            <p class="text-slate-300">O artigo "A Survey of Techniques for Architecting and Managing Asymmetric Multicore Processors" sistematiza e prevê a importância de arquiteturas híbridas para o futuro da computação.</p>
+                        </div>
+                         <div class="timeline-item border-l-transparent">
+                            <div class="timeline-dot"></div>
+                            <h4 class="font-bold text-lg text-white">Pós-2020: Convergência</h4>
+                            <p class="text-slate-300">Arm entra com força nos PCs (Apple Silicon) e a x86 adota o design híbrido (Intel), validando a visão de Mittal.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Estado da Prática - Arm (Melhorado) -->
+                <div class="slide w-full h-full p-8 md:p-12 flex flex-col justify-center fade-in">
+                    <h2 class="text-3xl font-bold text-sky-400 mb-6 text-center">4. Estado da Prática: A Ascensão da Arm</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-slate-700/50 p-6 rounded-lg flex flex-col">
+                            <h3 class="font-bold text-xl text-white mb-3">Apple Silicon (SoC)</h3>
+                            <p class="mb-4 text-sm">Integração vertical de CPU, GPU e NPU em um único chip (System on a Chip) para máxima eficiência.</p>
+                            <div class="flex-grow flex items-center justify-center p-4">
+                                <svg viewBox="0 0 150 90" class="w-full h-auto">
+                                    <rect x="5" y="5" width="140" height="80" fill="#1e293b" rx="5"/>
+                                    <rect x="15" y="15" width="60" height="60" fill="#0ea5e9" rx="3"/><text x="45" y="48" font-size="10" fill="white" text-anchor="middle" font-weight="bold">CPU</text>
+                                    <rect x="85" y="15" width="50" height="25" fill="#8b5cf6" rx="3"/><text x="110" y="30" font-size="8" fill="white" text-anchor="middle">GPU</text>
+                                    <rect x="85" y="50" width="50" height="25" fill="#db2777" rx="3"/><text x="110" y="65" font-size="8" fill="white" text-anchor="middle">NPU (IA)</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="bg-slate-700/50 p-6 rounded-lg flex flex-col">
+                            <h3 class="font-bold text-xl text-white mb-3">Windows on Arm</h3>
+                            <p class="mb-4 text-sm">Liderada pela Qualcomm, a iniciativa busca levar a eficiência da Arm ao ecossistema Windows.</p>
+                            <div class="flex-grow flex items-center justify-center p-4">
+                                 <svg viewBox="0 0 150 90" class="w-full h-auto">
+                                    <rect x="5" y="5" width="140" height="80" fill="#1e293b" rx="5"/>
+                                    <text x="75" y="20" font-size="8" fill="#22c55e" text-anchor="middle" font-weight="bold">Snapdragon X Elite</text>
+                                    <rect x="15" y="30" width="60" height="45" fill="#22c55e" rx="3"/><text x="45" y="55" font-size="8" fill="white" text-anchor="middle">Núcleos Oryon</text>
+                                    <rect x="85" y="30" width="50" height="20" fill="#db2777" rx="3"/><text x="110" y="42" font-size="7" fill="white" text-anchor="middle">NPU Hexagon</text>
+                                    <rect x="85" y="55" width="50" height="20" fill="#4f46e5" rx="3"/><text x="110" y="67" font-size="7" fill="white" text-anchor="middle">Emulação x86</text>
+                                 </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Estado da Prática - x86 -->
+                <div class="slide w-full h-full p-8 md:p-12 flex flex-col justify-center fade-in">
+                    <h2 class="text-3xl font-bold text-sky-400 mb-6 text-center">4. Estado da Prática: A Resposta da x86</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-slate-700/50 p-6 rounded-lg flex flex-col">
+                            <h3 class="font-bold text-xl text-white mb-3">Intel: Arquitetura Híbrida</h3>
+                            <p class="mb-4 text-sm">Adotou P-cores e E-cores, gerenciados pelo Thread Director para otimizar a alocação de tarefas.</p>
+                            <div class="flex-grow flex items-center justify-center p-4">
+                                <svg viewBox="0 0 150 90" class="w-full h-auto">
+                                    <rect x="5" y="5" width="140" height="80" fill="#1e293b" rx="5"/>
+                                    <rect x="15" y="35" width="50" height="40" fill="#f97316" rx="3"/><text x="40" y="60" font-size="10" fill="white" text-anchor="middle">P-Core</text>
+                                    <rect x="75" y="35" width="25" height="40" fill="#475569" rx="3"/><text x="87.5" y="60" font-size="10" fill="white" text-anchor="middle">E-Core</text>
+                                    <rect x="110" y="35" width="25" height="40" fill="#475569" rx="3"/><text x="122.5" y="60" font-size="10" fill="white" text-anchor="middle">E-Core</text>
+                                    <rect x="15" y="15" width="120" height="15" fill="#0ea5e9" rx="3"/><text x="75" y="26" font-size="7" fill="white" text-anchor="middle">Intel Thread Director</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="bg-slate-700/50 p-6 rounded-lg flex flex-col">
+                            <h3 class="font-bold text-xl text-white mb-3">AMD: Otimização com Chiplets</h3>
+                            <p class="mb-4 text-sm">Usa múltiplos "chiplets" de CPU conectados a um die central de I/O para escalabilidade e eficiência.</p>
+                             <div class="flex-grow flex items-center justify-center p-4">
+                                <svg viewBox="0 0 150 90" class="w-full h-auto">
+                                    <rect x="5" y="5" width="140" height="80" fill="#1e293b" rx="5"/>
+                                    <rect x="45" y="25" width="60" height="40" fill="#ef4444" rx="3"/><text x="75" y="48" font-size="10" fill="white" text-anchor="middle">I/O Die</text>
+                                    <rect x="15" y="15" width="25" height="25" fill="#f97316" rx="3"/><text x="27.5" y="29" font-size="6" fill="white" text-anchor="middle">CCD</text>
+                                    <rect x="110" y="50" width="25" height="25" fill="#f97316" rx="3"/><text x="122.5" y="64" font-size="6" fill="white" text-anchor="middle">CCD</text>
+                                    <path d="M45 37.5 L40 37.5 L40 27.5" stroke="#94a3b8" stroke-width="1" fill="none"/>
+                                    <path d="M105 50 L110 50 L110 62.5" stroke="#94a3b8" stroke-width="1" fill="none"/>
+                                 </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 7: Análise Comparativa e Desafios (Melhorado) -->
+                <div class="slide w-full h-full p-8 md:p-12 flex flex-col justify-center fade-in">
+                    <h2 class="text-3xl font-bold text-sky-400 mb-4 text-center">4. Análise Comparativa e Desafios</h2>
+                    <div class="w-full bg-slate-700/50 rounded-lg p-1 overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead class="text-xs text-white uppercase bg-slate-700">
+                                <tr>
+                                    <th class="p-3">Métrica</th>
+                                    <th class="p-3 text-green-300">Arquitetura Arm</th>
+                                    <th class="p-3 text-orange-300">Arquitetura x86</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-slate-600">
+                                    <td class="p-3 font-semibold">⚡ Desempenho / Watt</td>
+                                    <td class="p-3">Excepcional. Design focado em eficiência desde a origem.</td>
+                                    <td class="p-3">Competitivo, mas requer mais energia para atingir picos de performance.</td>
+                                </tr>
+                                <tr class="border-b border-slate-600">
+                                    <td class="p-3 font-semibold">💻 Ecossistema de Software</td>
+                                    <td class="p-3">Nativo no mobile. No desktop, depende de emulação (ex: Rosetta 2, Prism).</td>
+                                    <td class="p-3">Dominante. Vasta biblioteca de software legado e profissional.</td>
+                                </tr>
+                                <tr class="border-b border-slate-600">
+                                    <td class="p-3 font-semibold">🧩 Integração (SoC)</td>
+                                    <td class="p-3">Nativa e altamente otimizada, unindo CPU, GPU e NPU.</td>
+                                    <td class="p-3">Tradicionalmente modular, mas adotando designs mais integrados.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">🎯 Vantagem Principal</td>
+                                    <td class="p-3">Eficiência energética e vida útil da bateria.</td>
+                                    <td class="p-3">Compatibilidade de software e poder de processamento bruto.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-4">
+                        <div class="bg-slate-900/50 p-4 rounded-lg"><h4 class="font-bold text-white text-green-400">Desafio Arm:</h4><p class="text-sm text-slate-300">Qualidade e desempenho da emulação de software x86 para garantir uma transição suave para os usuários.</p></div>
+                        <div class="bg-slate-900/50 p-4 rounded-lg"><h4 class="font-bold text-white text-orange-400">Desafio x86:</h4><p class="text-sm text-slate-300">Complexidade do agendamento de tarefas nos núcleos P e E, e reduzir o consumo em tarefas de baixa intensidade.</p></div>
+                    </div>
+                </div>
+
+                <!-- Slide 8: Conclusão (Melhorado) -->
+                <div class="slide w-full h-full p-8 md:p-12 flex flex-col justify-center fade-in">
+                    <h2 class="text-3xl font-bold text-sky-400 mb-6 text-center">5. Conclusão</h2>
+                    <div class="space-y-6 text-lg max-w-4xl mx-auto">
+                        <div>
+                            <h3 class="font-semibold text-xl text-white mb-2">A Arquitetura Híbrida é a Vencedora</h3>
+                            <p>A "guerra" não foi vencida por Arm ou x86, mas pela filosofia de design que ambas adotaram: o processamento assimétrico. A previsão de Mittal (2015) não foi apenas confirmada, tornou-se o padrão da indústria para equilibrar desempenho e eficiência.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-xl text-white mb-2">O Próximo Campo de Batalha: A Era da IA no Edge</h3>
+                            <p>Com o hardware de base convergindo, a nova fronteira da competição é a <strong class="text-sky-400">aceleração de Inteligência Artificial</strong>. A eficiência e o poder das NPUs (Neural Processing Units) integradas serão o fator decisivo para o desempenho percebido pelo usuário em aplicações futuras.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 9: Referências (Melhorado) -->
+                <div class="slide w-full h-full p-8 md:p-12 flex flex-col justify-center fade-in">
+                    <h2 class="text-3xl font-bold text-sky-400 mb-6">6. Referências</h2>
+                    <div class="space-y-4 text-slate-300 max-w-4xl mx-auto">
+                        <div>
+                            <h3 class="font-semibold text-white">Fonte Principal:</h3>
+                            <p class="text-sm">Mittal, Sparsh. "A Survey of Techniques for Architecting and Managing Asymmetric Multicore Processors." <i>ACM Computing Surveys</i> 48, no. 3 (2015): 1-38.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white">Fontes Adicionais (Exemplos Atuais):</h3>
+                            <ul class="list-disc list-inside text-sm space-y-2">
+                                <li>Análises Técnicas (2024-2025): "Snapdragon X Elite Laptop Reviews" (AnandTech, Ars Technica), "Intel Core Ultra 'Arrow Lake' Deep Dive" (Gamers Nexus).</li>
+                                <li>Documentação Oficial: "Apple Silicon 4 Architecture" (Apple Developer), "Intel Performance Hybrid Architecture & Thread Director" (Intel Technology).</li>
+                                <li>Pesquisa Acadêmica Recente: Artigos sobre agendamento heterogêneo e aceleradores de IA das conferências ISCA 2024 e MICRO 2024.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 10: Perguntas -->
+                <div class="slide w-full h-full p-8 md:p-16 flex flex-col justify-center items-center text-center bg-gradient-to-tr from-slate-900 to-slate-800 fade-in">
+                    <h2 class="text-6xl font-black text-white">Obrigado!</h2>
+                    <p class="text-4xl font-bold text-sky-400 mt-4">Perguntas?</p>
+                </div>
+
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button id="prev-btn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-slate-700/50 hover:bg-slate-600/80 text-white p-2 rounded-full transition-opacity opacity-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button id="next-btn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-slate-700/50 hover:bg-slate-600/80 text-white p-2 rounded-full transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
+        </div>
+
+        <!-- Progress Bar and Counter -->
+        <div class="w-full mt-4 flex items-center gap-4">
+            <div class="w-full bg-slate-700 rounded-full h-2.5">
+                <div id="progress-bar" class="bg-sky-500 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>
+            <div id="slide-counter" class="text-sm text-slate-400 whitespace-nowrap">Slide 1 / 10</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slidesTrack = document.getElementById('slides-track');
+            const slides = Array.from(slidesTrack.children);
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const progressBar = document.getElementById('progress-bar');
+            const slideCounter = document.getElementById('slide-counter');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            const showSlide = (slideIndex) => {
+                // Move the track
+                slidesTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+                // Update progress bar
+                const progress = ((slideIndex) / (totalSlides - 1)) * 100;
+                progressBar.style.width = `${progress}%`;
+
+                // Update counter
+                slideCounter.textContent = `Slide ${slideIndex + 1} / ${totalSlides}`;
+
+                // Update button visibility
+                prevBtn.style.opacity = slideIndex === 0 ? '0' : '1';
+                nextBtn.style.opacity = slideIndex === totalSlides - 1 ? '0' : '1';
+                
+                // Add fade-in animation to the current slide's content
+                slides.forEach((slide, index) => {
+                    const content = slide.children[0];
+                    if (index === slideIndex) {
+                        content.classList.add('fade-in');
+                    } else {
+                        content.classList.remove('fade-in');
+                    }
+                });
+            };
+
+            const nextSlide = () => {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            };
+
+            const prevSlide = () => {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            };
+
+            // Event Listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+
+            // Initial setup
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
