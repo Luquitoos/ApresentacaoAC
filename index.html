@@ -141,6 +141,19 @@
             background-clip: text;
             color: transparent;
         }
+
+        /* Estilo específico para o slide de agradecimento */
+        .slide-obrigado {
+            background-image: url('dreamtime.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .slide-obrigado::before,
+        .slide-obrigado::after {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-slate-950">
@@ -392,7 +405,7 @@
                     </div>
                 </section>
 
-                <section class="slide">
+                <section class="slide slide-obrigado">
                     <div class="text-center">
                         <h2 class="text-8xl font-black text-slate-100">Obrigado!</h2>
                     </div>
